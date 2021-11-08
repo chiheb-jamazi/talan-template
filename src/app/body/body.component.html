@@ -1,0 +1,147 @@
+
+<link href="https://unpkg.com/@angular/material/prebuilt-themes/deeppurple-amber.css" rel="stylesheet">
+<app-navbar></app-navbar>
+
+
+
+
+
+
+<!-- ###########################################SECTION 1##################################################### -->
+
+<div id="departements_div" class="bgded overlay" style="background-image:url('../../assets/images/demo/unsplash_1.jpg');">
+  <section id="services" class="hoc container clear"> 
+    
+
+    <div class="sectiontitle">
+
+      <h6 class="heading font-x2">Main departments</h6>
+    </div>
+    <ul class="nospace group elements elements-three">
+      <li class="one_third">
+        <article>
+          <div>
+            
+            <footer><a href="#" ><i class="fas fa-credit-card"></i></a></footer>
+            <h6 class="heading">Specialist trauma center</h6>
+          </div>
+          
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-compress"></i></a></footer>
+            <h6 class="heading">Burn unit</h6>
+          </div>
+         
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-futbol"></i></a></footer>
+            <h6 class="heading">Surgery</h6>
+          </div>
+    
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-fire-extinguisher"></i></a></footer>
+            <h6 class="heading">Urgent care</h6>
+          </div>
+
+        </article>
+      </li>
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-medkit"></i></a></footer>
+            <h6 class="heading">Radiology</h6>
+          </div>
+          
+        </article>
+      </li>
+
+      <li class="one_third">
+        <article>
+          <div>
+            <footer><a href="#"><i class="fas fa-recycle"></i></a></footer>
+            <h6 class="heading">Pharmacy </h6>
+          </div>
+          
+        </article>
+      </li>
+    </ul>
+    
+  </section>
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</div>
+
+<!-- ################################################################################################ -->
+
+<!-- ########################################SECTION 2######################################################## -->
+
+<div class="wrapper row3" id="advices_div">
+  <section class="hoc container clear shout"> 
+
+    <div class="sectiontitle">
+      
+      <h6 class="heading font-x2">&ldquo;Healthy tips corner&bdquo;</h6>
+    </div>
+
+    <figure class="one_half first"><img src="../../assets/images/demo/food.jpg" alt="">
+      <figcaption *ngIf="isLoggedIn==true" class="heading"><a href="http://127.0.0.1:5000">Get food recommendations.</a></figcaption>
+      <figcaption class="heading"><a *ngIf="isLoggedIn==false" href="/login">Get food recommendations.</a></figcaption>
+    </figure>
+
+    <figure class="one_half"><img src="../../assets/images/demo/robot.jpg" alt="">
+      <figcaption *ngIf="isLoggedIn==true" class="heading"><a (click)="openDialog()">Chat with boty for health advices.</a></figcaption>
+      <figcaption class="heading"><a *ngIf="isLoggedIn==false" href="/login">Chat with boty for health advices.</a></figcaption>
+    </figure>
+    
+  </section>
+</div>
+
+<div class="wrapper coloured">
+  <article id="cta" class="hoc container clear"> 
+
+    <h6 class="heading"><span>&ldquo;</span>Check your meal's total calories<span>&bdquo;</span></h6>
+    <footer><a *ngIf="isLoggedIn==true" class="btn" href="http://127.0.0.1:3000"><i style="font-size: 30px;" class="fas fa-calculator"></i></a></footer>
+    <footer><a class="btn" *ngIf="isLoggedIn==false" href="/login"><i style="font-size: 30px;" class="fas fa-calculator"></i></a></footer>
+  </article>
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+
+
+
+<app-footer></app-footer>
+

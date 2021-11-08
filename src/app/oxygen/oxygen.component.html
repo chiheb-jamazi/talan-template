@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<style>
+.btn:hover {
+
+  text-decoration: none !important;
+
+}
+</style>
+
+<div class="wrapper row2">
+    <section class="hoc container clear"> 
+      <!-- ################################################################################################ -->
+      <div class="sectiontitle">
+        
+        <h6 class="heading font-x2">Check your hospital's oxygen supply</h6>
+      </div>
+      <ul   class="pr-charts nospace group center">
+        <li *ngFor="let R of listbouteille" class="pr-chart-ctrl" data-animate="false">
+          <div class="pr-chart" [attr.data-percent]="R.pourcentage"><i></i></div>
+  
+          <p style="margin-top: -22px; margin-left: -10px;"><strong *ngIf="R.pourcentage > 30" style="font-size: 12px; border: none;" >Bottle number: {{ R.id }} is <p style="color: #B0CA35;">Stable</p></strong></p>
+          <p style="margin-top: -22px; margin-left: -10px;" ><strong *ngIf="greaterThan(R.pourcentage, 30)"  style="font-size: 12px;" href="#">Bottle number: {{ R.id }} is almost <p style="color: #CA3433;">empty</p></strong></p>
+          <br>
+        </li>
+        
+      </ul>
+  
+    
+      <!-- ################################################################################################ -->
+    </section>
+  </div>
+
+
+
+
+  <app-footer></app-footer>

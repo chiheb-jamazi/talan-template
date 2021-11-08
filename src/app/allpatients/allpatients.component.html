@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+
+<style>
+input:focus { border-color:#B0CA35 !important;}
+
+</style>
+
+<div class="row gutters-sm" style="display: flex; justify-content: center;">
+  <div class="col-md-8">
+
+<form class="form-inline my-2 my-lg-0" (ngSubmit)="findPatientByUsername(f)" #f="ngForm">
+  
+    <input class="form-control mr-sm-2"
+           type="text"
+           id="search_username"
+           placeholder="Patient's username"
+           aria-label="Search"
+           name="titre"
+           ngModel>
+
+    <button type="submit" [disabled]="!f.valid"><i class="fas fa-search" style="font-size: 17px; color: grey;"></i></button>
+
+  </form><br>
+
+<div *ngIf="search == true;">
+<table class="scrollable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Patient's id</th>
+        <th scope="col">Patient's username</th>
+        
+        <th scope="col" style="visibility: hidden;"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr  *ngFor="let R of Listuser | paginate:{itemsPerPage:10,currentPage:p}; ">
+        <td>{{R.id}}</td>
+        <td>{{R.username}}</td>
+        <td><button type="submit" (click)="followPatient(R.id, id)"><i class="fas fa-user-plus" style="font-size: 17px; color: grey;"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
+
+<div *ngIf="search == false;">
+ 
+    <table class="scrollable">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">username</th>
+            
+            <th scope="col" style="visibility: hidden;"></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+     
+          <td>{{user_patient.id}}</td>
+          <td>{{user_patient.username}}</td>
+          <td><button (click)="followPatient(user_patient.id, id)"><i class="fas fa-user-plus" style="font-size: 17px; color: grey;"></i></button></td>
+        
+        </tbody>
+      </table>
+
+      <button (click)="backtoallpatient()"><i class="fas fa-arrow-left" style="font-size: 25px;"></i></button><br>
+      
+
+</div>
+
+</div></div>
+
+<app-footer></app-footer>

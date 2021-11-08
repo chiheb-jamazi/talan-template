@@ -1,0 +1,172 @@
+<app-navbar></app-navbar>
+
+<style>
+
+
+.cards_report {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.my_card {
+  margin: 40px;
+  position: relative;
+  max-width: 270px;
+  max-height: 350px;
+  box-shadow: 0 40px 60px -6px grey;
+}
+
+.card-title {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: grey;
+  padding: 2%;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.my_card img {
+  width: 100%;
+  height: 98%;
+  object-fit: cover;
+  display: block;
+  position: center;
+  margin-top: -14px;
+}
+
+.card-desc {
+  display: block;
+  font-size: 1.2rem;
+  position: absolute;
+  height: 0;
+  top: 0;
+  opacity: 0;
+  padding: 18px 8%;
+  background-color: white;
+  overflow-y: scroll;
+  transition: 0.8s ease;
+}
+
+.my_card:hover .card-desc {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+
+</style>
+
+<div class="card-body">
+<!-- ______________________________________ DETAILS ______________________________________ -->
+
+<div class="row gutters-sm">
+  <div class="col-sm-6 mb-3">
+    <div class="card h-100">
+      <img src="../../assets/images/smart-watch.png" style="width: 60px; height: 60px;">
+      <div class="card-body">
+        <h6 class="d-flex align-items-center mb-3" style="color: grey;">Health Records</h6> 
+
+        <table class="scrollable">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Record's date</th>
+              <th scope="col">Calories intake</th>
+              <th scope="col">Heart rate</th>
+              <th scope="col">Slept for (hours)</th>
+              <th scope="col">Amount of oxygen</th>
+              <th scope="col">Total steps</th>
+              <th scope="col">Body temperature</th>
+              <th scope="col">Weight (Kilograms)</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let R of listdetails | paginate:{itemsPerPage:5,currentPage:p1};">
+              <td>{{R.date | date:'shortDate'}}</td>
+              <td>{{R.calories}}</td>
+              <td>{{R.heartrate}}</td>
+              <td>{{R.hours_asleep}}</td>
+              <td>{{R.oxygene}}</td>
+              <td>{{R.steps}}</td>
+              <td>{{R.temperature}}</td>
+              <td>{{R.weight_kilo}}</td>
+            </tr>
+           
+
+          </tbody>
+        </table>
+        <pagination-controls  (pageChange)="p1=$event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ______________________________________ REPORTS ______________________________________ -->
+
+  <div class="col-sm-6 mb-3">
+    <div class="card h-100">
+      <img src="../../assets/images/medical-report.png" style="width: 60px; height: 60px;">
+      <div class="card-body">
+        <h6 class="d-flex align-items-center mb-3" style="color: grey;">Doctor's reports History</h6>
+
+        <table class="scrollable">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Report's' Date</th>
+              <th scope="col">Doctor's review</th>
+
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let R of listreporting  ">
+              <td>{{R.datedetails}}</td>
+              <td>{{R.message}}</td>
+            </tr>
+          </tbody>
+        </table>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><br>
+
+
+
+
+
+
+
+<div class="row gutters-sm " style="padding-left: 35px; padding-right: 35px;">
+  <div class="card h-100" style="width: 100%;"><br>
+
+
+<h6 class="align-items-center mb-3 center" style="color: grey;">Your latest reports</h6>
+
+<div class="cards_report" >
+  <div class="my_card" *ngFor="let R2 of listreporting_top3">
+    <h2 class="card-title">{{R2.datedetails}}</h2>
+    <img src="../../assets/images/px.jpg" alt="">
+    <p class="card-desc">{{R2.message}}</p>
+  </div>
+
+  
+ 
+</div><br>
+
+</div></div><br><br>
+
+
+<app-footer></app-footer>

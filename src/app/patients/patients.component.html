@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+
+
+<style>
+  input:focus { border-color:#B0CA35 !important;}
+  textarea:focus { border-color:#B0CA35 !important;}
+</style>
+
+
+<div class="card-body">
+<!--_________________________________________TABLES______________________________________________-->
+
+
+<div class="row gutters-sm">
+  <div class="col-md-8">
+    <div class="card h-100">
+      <div class="card-body">
+
+        <table class="scrollable" *ngIf="hide_table == false;">
+          <thead class="thead-dark">
+            <th scope="col">Patient's id</th>
+            <th style="visibility: hidden;"></th>
+          </thead>
+          <tbody style="border: none;">
+            <tr *ngFor="let R of listpatient_medecin | paginate:{itemsPerPage:8,currentPage:p};">
+              <td>{{R.patient_id}}</td>
+              
+              <td><button (click)="returnPatientDetails(R.patient_id)"><i class="fas fa-heartbeat"
+                    style="font-size: 21px; color: grey;"></i></button></td>
+            </tr>
+          </tbody>
+         
+        </table>
+        <pagination-controls *ngIf="hide_table == false;" (pageChange)="p=$event"></pagination-controls>
+    
+    
+        <table class="scrollable" *ngIf="hide_table == true;">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Record's date</th>
+              <th scope="col">Calories intake</th>
+              <th scope="col">Heart rate</th>
+              <th scope="col">Slept for (hours)</th>
+              <th scope="col">Amount of oxygen</th>
+              <th scope="col">Total steps</th>
+              <th scope="col">Body temperature</th>
+              <th scope="col">Weight (Kilograms)</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr *ngFor="let R of listdetails  | paginate:{itemsPerPage:3,currentPage:p}; ">
+              <td>{{R.date | date:'shortDate'}}</td>
+              <td>{{R.calories}}</td>
+              <td>{{R.heartrate}}</td>
+              <td>{{R.hours_asleep}}</td>
+              <td>{{R.oxygene}}</td>
+              <td>{{R.steps}}</td>
+              <td>{{R.temperature}}</td>
+              <td>{{R.weight_kilo}}</td>
+            </tr>
+          </tbody>
+          
+        </table>
+        <pagination-controls  *ngIf="hide_table == true;" (pageChange)="p=$event"></pagination-controls>
+        <button *ngIf="hide_table == true;" (click)="returnFalse()"><i class="fas fa-arrow-left"
+          style="font-size: 25px;"></i></button><br>
+        
+      </div>
+    </div>
+  </div>
+
+
+<!--______________________________________FORM______________________________________-->
+
+  <div class="col-md-4 mb-3">
+    <div class="card h-100">
+      <img src="../../assets/images/medical-report.png" style="width: 60px; height: 60px;">
+      <div class="card-body">
+       
+        <div id="comments">
+
+          <form  (ngSubmit)="Addreporting(f)" #f="ngForm">
+            <div >
+              <label for="name">Patient's ID<span>*</span></label>
+              <input class="form-control mr-sm-2" type="text" id="search_username" 
+                aria-label="Search" name="iddetails" ngModel>
+            </div>
+            <div>
+              <label for="email">Record's date<span>*</span></label>
+              <input class="form-control" type="date" id="search_username" 
+                aria-label="Search" name="datedetails" datetime="YYYY-MM-DD"
+                ngModel>
+            </div>
+           
+            <div >
+              <label for="comment">Doctor's review</label>
+              <textarea class="form-control" type="text" id="search_username"
+              aria-label="Search" name="Message" ngModel></textarea>
+            </div>
+
+            <div class="form-group center">
+              <button type="submit" [disabled]="!f.valid" class="btn">Add Report</button>
+            </div>
+            
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="row gutters-sm" style="display: flex; justify-content: center;">
+  <div class="col-md-8">
+    <table class="scrollable">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">User's id</th>
+          <th scope="col">User's username</th>
+          <th scope="col">User's role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let R of Listuser; let i = index ; paginate:{itemsPerPage:2,currentPage:p};">
+          
+          <td>{{R.id}}</td>
+          <td>{{R.username}}</td>
+          <!--<td *ngFor="let my_role of R.roles; let i = index">{{my_role[0]}}</td>-->
+          
+          <td *ngIf="R.roles[0].name=='ROLE_MODERATOR'">Doctor</td>
+          <td *ngIf="R.roles[0].name=='ROLE_USER'">Patient</td>
+          <td *ngIf="R.roles[0].name=='ROLE_ADMIN'">Director</td>
+         
+          <!-- *ngFor="let my_role of R.roles"-->
+
+          
+       
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls  (pageChange)="p=$event"></pagination-controls>
+    <br>
+               
+   
+    <br>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('../../talantemplate/src/assets/layout/styles/framework.css');
+@import url('../../talantemplate/src/assets/layout/styles/layout.css');
+@import url('../../talantemplate/src/assets/layout/styles/fontawesome-free/css/fontawesome-all.min.css');
+@import url('../../talantemplate/src/assets/layout/styles/main.css');
+@import url('../../talantemplate/src/assets/layout/styles/util.css');
+
+

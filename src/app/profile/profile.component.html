@@ -1,0 +1,141 @@
+<app-navbar></app-navbar>
+
+<style>
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .picture_btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .mask {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 100%;
+  }
+</style>
+
+
+
+
+<div class="main-body d-flex flex-column align-items-center">
+  <div class="col-md-8">
+    <!-- col-md-4 mb-3 -->
+    <div class="card mb-3">
+      <!-- card -->
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center text-center">
+          <div class="mask">
+            <img [src]="urllink" alt="Admin">
+            
+          </div>
+
+          <br>
+
+          <p style="font-size:18px;">&ldquo;Check your account information below.&bdquo;</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Username</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{username}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Full Name</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            -
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{email}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Phone</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            (+216) xx xxx xxx
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Mobile</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            (+216) xx xxx xxx
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Address</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            -
+          </div>
+        </div>
+
+        <!--<div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                      <div class="mt-3">
+                        <button class="picture_btn" data-toggle="tooltip" title="Follow this patient!">Follow</button>
+                      </div>
+                    </div>
+                  </div>-->
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<br><br><br><br><br>
+<app-footer></app-footer>
